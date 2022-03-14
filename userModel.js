@@ -9,7 +9,7 @@ const UserSchema = new Schema(
       required: true,
       trim: true,
       min: [1, "Too short,min is 1 characters"],
-      max: [32, "Too long,max is 32 characters"],
+      max: [10, "Too long,max is 10 characters"],
     },
     age: {
       type: Number,
