@@ -4,15 +4,14 @@ import { setItemToLocalStorage } from "../services/localStorage";
 import currentUserStore from "../stores/CurrentUser.store";
 import "./style.css";
 
-const initialEnterdName: string =
-  currentUserStore.currentUser.Name || "Enter name";
-const initialEnterdAge: any = currentUserStore.currentUser.Age || "Enter age";
+const EnterdName: string = currentUserStore.currentUser.Name || "Enter name";
+const EnterdAge: any = currentUserStore.currentUser.Age || "Enter age";
 
 const EditUser = () => {
   const [NameIsValid, setNameIsValid] = useState(false);
   const [AgeIsValid, setAgeIsValid] = useState(false);
-  const [Name, setName] = useState(initialEnterdName);
-  const [Age, setAge] = useState(initialEnterdAge);
+  const [Name, setName] = useState(EnterdName);
+  const [Age, setAge] = useState(EnterdAge);
 
   // onChange name input;
   const nameInputChangeHandler = (event: any) => {
@@ -75,11 +74,13 @@ const EditUser = () => {
   };
 
   // Clear the local storage
-  const clearInformationHandler = () => {
-    currentUserStore.setNewName("");
-    currentUserStore.setNewAge(0);
+  const deleteHandler = () => {
     localStorage.removeItem("name");
     localStorage.removeItem("age");
+    setName("");
+    setAge(0);
+    currentUserStore.setNewName("");
+    currentUserStore.setNewAge(0);
   };
 
   return (
@@ -116,15 +117,15 @@ const EditUser = () => {
           )}
         </div>
         <div className="field button-field-box">
-          <button className="generateUserBtn" onClick={RandomUserHandler}>
+          <button className="randomUserBtn" onClick={RandomUserHandler}>
             Random User
           </button>
         </div>
         <div className="field button-field-box">
           <button
-            className="generateUserBtn"
+            className="randomUserBtn"
             style={{ backgroundColor: "white", color: "black" }}
-            onClick={clearInformationHandler}
+            onClick={deleteHandler}
           >
             Delete
           </button>
