@@ -45,23 +45,9 @@ input {
 }
 
 .invalid {
-  border: 1px solid #b40e0e;
-  background-color: #fddddd;
+  border: 1px solid #000000;
 }
 
-.invalid:focus {
-  border-color: #ff8800;
-  background-color: #fbe8d2;
-}
-
-.invalidDiv {
-  color: red;
-  font-size: 0.7rem;
-}
-.invalidDiv b {
-  color: red;
-  font-size: 0.7rem;
-}
 label {
   margin-bottom: 10px;
 }

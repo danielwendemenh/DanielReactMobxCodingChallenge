@@ -18,6 +18,9 @@ const EditUser = () => {
     // Get the value
     const nameValue = event.target.value;
 
+    if (nameValue.length === 0) {
+      currentUserStore.setNewName("");
+    }
     setName(nameValue);
     //Check if valid
     if (
@@ -46,6 +49,9 @@ const EditUser = () => {
     // Get the value from the event;
     const Age = event.target.value;
 
+    if (Age.length === 0) {
+      currentUserStore.setNewAge(0);
+    }
     setAge(Age);
     // Check if age is valid;
     let age = +Age >= 0 ? +Age : 0;
@@ -91,13 +97,13 @@ const EditUser = () => {
             type="text"
             name="name"
             className={NameIsValid ? "invalid" : ""}
-            value={Name !== "Enter name" ? Name : ""}
             placeholder={Name}
+            value={Name !== "Enter name" ? Name : ""}
             onChange={nameInputChangeHandler}
           />
           {NameIsValid && (
             <div className="invalidDiv">
-              Invalid input!! - must contains <b>only 1 to 10 characters!</b>
+              Invalid must contains <b>only 1 to 10 characters!!!</b>
             </div>
           )}
         </div>
@@ -106,13 +112,13 @@ const EditUser = () => {
             type="text"
             name="age"
             className={AgeIsValid ? "invalid" : ""}
-            value={Age !== "Enter age" ? Age : ""}
             placeholder={Age.toString()}
+            value={Age !== "Enter age" ? Age : ""}
             onChange={ageInputChangeHandler}
           />
           {AgeIsValid && (
             <div className="invalidDiv">
-              Invalid input !!- must contain <b>only digits !</b>
+              Invalid must contain <b>only digits !!!</b>
             </div>
           )}
         </div>
